@@ -18,10 +18,7 @@ public class WithdrawRunnable implements Runnable {
 
     public void run(){
         try {
-            System.out.println("Withdraw Thread: Balance is " + account.getBalance() + " at the start of the thread");
             customer.withdraw(account,amount);
-            System.out.println("Withdraw Thread: Attempting to withdraw "+amount);
-            System.out.println("Withdraw Thread: Balance is " + account.getBalance() + " at the end of the thread");
             Thread.sleep(DELAY);
         }catch(InterruptedException e){
             e.printStackTrace();

@@ -21,13 +21,13 @@ public class TestDriverOne{
     public static void main(String[] args){
 
         //MODEL CLASSES
-        Customer a = new Customer("STEVE");
+        Customer customer = new Customer("STEVE");
         AccountADT basic = new BasicAccount(1,500);
-        a.openAccount(basic);
+        customer.openAccount(basic);
 
         //RUNNABLES - Maybe pass customers here
-        WithdrawRunnable r1 = new WithdrawRunnable(a,basic, 600);
-        DepositRunnable r2 = new DepositRunnable(a,basic, 300);
+        WithdrawRunnable r1 = new WithdrawRunnable(customer,basic, 600);
+        DepositRunnable r2 = new DepositRunnable(customer,basic, 300);
 
         //THREADS
         Thread t1 = new Thread(r1);

@@ -23,9 +23,6 @@ public class BasicAccount implements AccountADT{
         setBalance(getBalance()+amount);
         return true;
     }
-    public boolean transfer(AccountADT source, AccountADT target,double amount){
-        return true;
-    }
 
 
     public void setAccountID(int accountID){
@@ -45,6 +42,20 @@ public class BasicAccount implements AccountADT{
     }
 
     public int getID(){
+        return accountID;
+    }
+
+    public boolean transState(double amount){
+        if(getBalance() < amount){
+            return false;
+        }
+        return true;
+    }
+
+    public void setAccountId(int accountID){
+        this.accountID = accountID;
+    }
+    public int getAccountId(){
         return accountID;
     }
 

@@ -11,15 +11,18 @@ public class SavingsAccount implements AccountADT {
     }
 
     public boolean withdraw(double amount){
-        return true;
-    }
-    public boolean deposit(double amount){
-        return true;
-    }
-    public boolean transfer(AccountADT source, AccountADT target,double amount){
+        if(getBalance()<amount){
+            return false;
+        } else {
+            setBalance(getBalance()-amount);
+        }
         return true;
     }
 
+    public boolean deposit(double amount){
+        setBalance(getBalance() + amount);
+        return true;
+    }
 
     public void setAccountID(int accountID){
         this.accountID = accountID;
@@ -35,5 +38,19 @@ public class SavingsAccount implements AccountADT {
 
     public double getBalance(){
         return balance;
+    }
+
+    public boolean transState(double amount){
+        if(getBalance() < amount){
+            return false;
+        }
+        return true;
+    }
+
+    public void setAccountId(int accountID){
+        this.accountID = accountID;
+    }
+    public int getAccountId(){
+        return accountID;
     }
 }
