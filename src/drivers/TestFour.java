@@ -18,10 +18,10 @@ public class TestFour {
 
         bank.openCurrent(aa);
 
-        Thread t1 = new Thread(new DepositRunnable(bank.getAccount(bb,2),100));
+        Thread t1 = new Thread(new DepositRunnable(bank.getAccount(bb,2),99));
         Thread t2 = new Thread(new DepositRunnable(bank.getAccount(aa,2),100));
         Thread t3 = new Thread(new WithdrawRunnable(bank.getAccount(bb,2),300));
-        Thread t4 = new Thread(new WithdrawRunnable(bank.getAccount(aa,2),100));
+        Thread t4 = new Thread(new WithdrawRunnable(bank.getAccount(aa,2),102));
         Thread t5 = new Thread(new BalanceRunnable(bank.getAccount(aa,2)));
         Thread t6 = new Thread(new BalanceRunnable(bank.getAccount(bb,2)));
 
