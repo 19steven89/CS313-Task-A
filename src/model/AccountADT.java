@@ -3,10 +3,14 @@ package model;
 public interface AccountADT {
     boolean withdraw(double amount);
     boolean deposit(double amount);
-    double getBalance();
+    boolean transfer(AccountADT target,double amount);
     boolean transState(double amount);
-    void setAccountId(int accountID);
-    int getAccountId();
-
+    void setCustomerID(String customerID);
+    String getCustomerID();
+    void setBalance(double balance);
+    double getBalance();
+    void setAccountID(int accountID);
+    int getAccountID();
+    int getType();
 
 }

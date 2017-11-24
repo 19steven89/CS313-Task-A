@@ -8,16 +8,17 @@ public class RenameRunnable implements Runnable {
     private static final int DELAY = 2;
     private AccountADT account;
     private Customer customer;
-    private String newName;
+    private String newID;
 
     public RenameRunnable(Customer c,String n){
-        newName = n;
+        newID = n;
         customer = c;
     }
 
     public void run(){
         try {
-            customer.setName(newName);
+            customer.setCustID(newID);
+            System.out.println("New Customer ID: " + customer.getCustID());
             Thread.sleep(DELAY);
         }catch(InterruptedException e){
             e.printStackTrace();

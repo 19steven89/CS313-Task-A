@@ -7,16 +7,14 @@ public class BalanceRunnable implements Runnable {
 
     private static final int DELAY = 1;
     private AccountADT account;
-    private Customer customer;
 
-    public BalanceRunnable(Customer c,AccountADT a){
+    public BalanceRunnable(AccountADT a){
         account = a;
-        customer = c;
     }
 
     public void run(){
         try {
-            customer.viewBalance(account);
+            System.out.println("Current balance of account : " + account.getAccountID() + " is : " + account.getBalance());
             Thread.sleep(DELAY);
         }catch(InterruptedException e){
             e.printStackTrace();

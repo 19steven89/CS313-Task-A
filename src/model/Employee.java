@@ -10,15 +10,15 @@ public class Employee {
 
     }
 
-    public void custViewBalance(Customer cust, AccountADT account){
-        System.out.println("EMPLOYEE ACCESS: \n" + cust.viewBalance(account));
+    public void custViewBalance(AccountADT account){
+        System.out.println("EMPLOYEE ACCESS: \n" + account.getBalance());
     }
 
-    public void custSetBalance(AccountADT account, Customer cust1, double amount){
-        WithdrawRunnable wr = new WithdrawRunnable(cust1,account, account.getBalance());
+    public void custSetBalance(AccountADT account, double amount){
+        WithdrawRunnable wr = new WithdrawRunnable(account, account.getBalance());
         Thread t1 = new Thread(wr);
         t1.start();
-        DepositRunnable dr = new DepositRunnable(cust1,account, amount);
+        DepositRunnable dr = new DepositRunnable(account, amount);
         Thread t2 = new Thread(dr);
         t2.start();
     }
@@ -29,23 +29,20 @@ public class Employee {
         t1.start();
     }
 
-    public void standingOrderIn(Customer customer, AccountADT accountADT, double amount){
-        System.out.println("EMPLOYEE ACCESS: \n");
-        DepositRunnable dr = new DepositRunnable(customer,accountADT, amount);
+    public void standingOrderIn(AccountADT accountADT, double amount){
+        DepositRunnable dr = new DepositRunnable(accountADT, amount);
         Thread t1 = new Thread(dr);
         t1.start();
     }
 
-    public void standingOrderOut(Customer customer, AccountADT accountADT, double amount){
-        System.out.println("EMPLOYEE ACCESS: \n");
-        WithdrawRunnable wr = new WithdrawRunnable(customer,accountADT, amount);
+    public void standingOrderOut(AccountADT accountADT, double amount){
+        WithdrawRunnable wr = new WithdrawRunnable(accountADT, amount);
         Thread t1 = new Thread(wr);
         t1.start();
     }
 
     public int getAccountID(AccountADT account){
-
-        return account.getAccountId();
+        return account.getAccountID();
     }
 }
 
